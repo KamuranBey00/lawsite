@@ -340,7 +340,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Logo div'ine tıklama işlevi ekle
   logoDiv.addEventListener("click", function () {
-    window.location.href = "site11.html";
+    window.location.href = "index.html";
   });
 
   // Logo'ya cursor:pointer ekle (tıklanabilir göstermek için)
