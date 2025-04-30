@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon.png" type="image/png" />
+    <title>Düzdemir Hukuk & Danışmanlık</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+      :root {
+        --bg-color: #fffbea;
+        --header-bg: #0c0c0c;
+        --text-color: #333;
+        --section-bg: #fffbea; /* Match background color */
+        --footer-bg: #f5f5f5;
+        --footer-text: #777;
+        --accent-color: #d4af37; /* Gold color for accents */
+        --header-text: #fff;
+        --section-shadow: rgba(0, 0, 0, 0.1);
+        --section-border: transparent;
+        --light-gray: #e9e7d9; /* Light background for lawyer header */
+        --card-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Shadow for card */
+      }
+      .section#about-us {
+        background-image: url("https://clipart-library.com/2024/pictures-of-court-rooms/pictures-of-court-rooms-0.jpeg"); /* Mahkeme fotoğrafınızı buraya ekleyin */
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed; /* Parallax efekti için */
+        position: relative;
+        color: #fff; /* Yazı rengini beyaz yaparak okunabilirliği artırın */
+        padding: 50px 0; /* Biraz daha fazla padding ekleyin */
+      }
+
+      /* Koyu overlay ekleyerek yazıların daha okunabilir olmasını sağlayın - opaklığı azalttım */
+      .section#about-us::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(
+          0,
+          0,
+          0,
+          0.5
+        ); /* Örtü katmanının opaklığını azalttım */
+        z-index: 1;
+      }
+
+      /* İçerik kutusunu overlayın üzerine getirin - arkaplan rengini ayarladım */
+      .section#about-us .section-content {
+        position: relative;
+        z-index: 2;
+        background-color: rgba(
+          0,
+          0,
+          0,
+          0.6
+        ); /* İçerik kutusunun arka plan opaklığını artırdım */
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      /* Hakkımızda kısmındaki başlığı daha görünür ve büyük yapmak için */
+      .section#about-us h3 {
+        color: #f0f0f0; /* Daha açık bir renk */
+        font-size: 2rem; /* Font boyutunu büyüttüm */
+        margin-bottom: 20px; /* Alt boşluğu artırdım */
+        font-weight: 600; /* Biraz daha kalın */
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Metin gölgesi ekledim */
+        letter-spacing: 1px; /* Harfler arası mesafeyi artırdım */
+      }
+
+      /* Hakkımızda kısmındaki paragrafları daha görünür yapmak için */
+      .section#about-us p {
+        color: #fff;
+        font-size: 1.05rem;
+        line-height: 1.8;
+        margin-bottom: 20px;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Metin gölgesi ekledim */
+      }
+
+      /* Koyu mod ayarlaması */
+      .dark-mode .section#about-us .section-content {
+        background-color: rgba(
+          0,
+          0,
+          0,
+          0.7
+        ); /* Koyu mod için daha koyu arka plan */
+      }
+
+      .dark-mode {
+        --bg-color: #121212;
+        --header-bg: #000000;
+        --text-color: #e0e0e0;
+        --section-bg: #121212; /* Match dark mode background */
+        --footer-bg: #1a1a1a;
+        --footer-text: #aaaaaa;
+        --section-shadow: rgba(0, 0, 0, 0.5);
+        --section-border: #333333;
+        --light-gray: #252525; /* Dark mode version of light gray */
+        --card-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Shadow for card in dark mode */
+      }
+
+      body {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .main-content.container {
+        padding: 0;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      header {
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        padding: 15px 0;
+        max-height: 150px;
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 10px;
+        height: 100%;
+        width: 100%;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+        margin-right: 20px;
+      }
+
+      .logo img {
+        height: 180px;
+        width: 225px;
+        object-fit: contain;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        flex-grow: 1;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+        align-items: center;
+      }
+
+      nav ul.main-menu {
+        flex-grow: 1;
+        justify-content: center;
+      }
+
+      nav ul.theme-menu {
+        justify-content: flex-end;
+      }
+
+      nav ul li {
+        margin: 0 25px;
+      }
+
+      nav ul li:last-child {
+        margin-right: 0;
+      }
+
+      nav ul li a {
+        color: var(--header-text);
+        text-decoration: none;
+        font-size: 1.5rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        padding: 10px 5px;
+        display: inline-block;
+      }
+
+      nav ul li a:hover {
+        color: var(--accent-color);
+        transform: scale(1.1);
+      }
+
+      .theme-toggle {
+        cursor: pointer;
+        font-size: 1.5rem;
+        color: var(--header-text);
+        transition: all 0.3s ease;
+      }
+
+      .theme-toggle:hover {
+        color: var(--accent-color);
+        transform: scale(1.1);
+      }
+
+      header {
+        max-height: 150px;
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-container {
+        height: 100%;
+        width: 100%;
+      }
+
+      .main-content {
+        padding-top: 0;
+        padding-bottom: 40px;
+      }
+
+      .quote-box {
+        background-color: transparent;
+        padding: 0;
+        border-radius: 0;
+        text-align: center;
+        margin-bottom: 40px;
+        position: relative;
+        overflow: hidden;
+        height: 450px;
+        width: 100vw;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+      }
+
+      .slideshow {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+      }
+
+      .slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+      }
+
+      .slide.active {
+        opacity: 1;
+      }
+
+      .slide img {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        transform: translateY(-50%);
+        z-index: 0;
+      }
+
+      .slide-quote {
+        position: relative;
+        color: #fff;
+        font-size: 1.8rem;
+        font-style: italic;
+        font-weight: bold;
+        width: 90%;
+        max-width: 1000px;
+        margin-bottom: 60px;
+        z-index: 2;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 15px;
+        border-radius: 8px;
+      }
+
+      .slideshow-controls {
+        position: absolute;
+        bottom: 20px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        z-index: 10;
+      }
+
+      .slideshow-controls button {
+        background-color: rgba(255, 255, 255, 0.3);
+        border: none;
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+      }
+
+      .slideshow-controls button:hover {
+        background-color: rgba(255, 255, 255, 0.5);
+      }
+
+      .slideshow-indicators {
+        position: absolute;
+        bottom: 10px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        z-index: 10;
+      }
+
+      .indicator {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .indicator.active {
+        background-color: #fff;
+        transform: scale(1.2);
+      }
+
+      /* Modified section styles to stretch to edge */
+      .content-sections {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        width: 100%;
+      }
+
+      .section {
+        padding: 30px 0; /* Add vertical padding only */
+        background-color: var(--section-bg);
+        width: 100vw;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        position: relative;
+      }
+
+      .section-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px; /* Add horizontal padding to the inner content */
+      }
+
+      .section h3 {
+        color: var(--text-color);
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+      }
+
+      .section p {
+        color: var(--text-color);
+        line-height: 1.6;
+        margin-bottom: 15px;
+      }
+
+      /* Updated lawyer header styling as a card with shadow */
+      .lawyer-header {
+        position: relative;
+        margin-bottom: 40px;
+        padding: 0; /* Remove padding from parent */
+        width: 100%;
+        background-color: transparent; /* Make background transparent */
+      }
+
+      .lawyer-header-container {
+        max-width: 1100px; /* Slightly smaller than the container to create card effect */
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        background-color: var(--light-gray); /* Bej rengi */
+        border-radius: 10px; /* Rounded corners for card effect */
+        box-shadow: var(--card-shadow); /* Add shadow */
+        padding: 40px; /* Add padding to the container */
+        overflow: hidden; /* Ensure everything stays inside rounded corners */
+      }
+
+      .lawyer-title {
+        margin-bottom: 30px;
+        padding-bottom: 10px;
+        position: relative;
+      }
+
+      .lawyer-name {
+        font-size: 2rem;
+        font-weight: 400;
+        color: var(--text-color);
+        margin-bottom: 5px;
+      }
+
+      .gold-line {
+        height: 2px;
+        background-color: var(--accent-color);
+        width: 180px;
+      }
+
+      .lawyer-content {
+        display: flex;
+        justify-content: space-between;
+        gap: 50px;
+        align-items: center;
+      }
+
+      .lawyer-photo {
+        width: 200px;
+        height: 250px;
+        border: 3px solid var(--accent-color);
+        overflow: hidden;
+        flex-shrink: 0;
+      }
+
+      .lawyer-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .motivation-text {
+        flex: 1;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: var(--text-color);
+        text-align: center;
+        display: flex;
+        align-items: center;
+        height: 100%;
+      }
+
+      footer {
+        background-color: var(--footer-bg);
+        padding: 30px 0;
+        margin-top: 40px;
+      }
+
+      .footer-content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 10px;
+      }
+
+      .footer-section {
+        margin-bottom: 20px;
+      }
+
+      .footer-section h3 {
+        color: var(--text-color);
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+      }
+
+      .footer-section p {
+        color: var(--text-color);
+      }
+
+      .copyright {
+        text-align: center;
+        margin-top: 30px;
+        color: var(--footer-text);
+        font-size: 0.9rem;
+      }
+
+      /* Slide image positions */
+      .slide:nth-child(3) img {
+        object-fit: cover;
+        object-position: center 45%;
+      }
+      .slide:nth-child(2) img {
+        object-fit: cover;
+        object-position: center 75%;
+      }
+      .slide:nth-child(4) img {
+        object-fit: cover;
+        object-position: center 25%;
+      }
+
+      /* Tooltip style */
+      .tooltip {
+        position: relative;
+      }
+
+      .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -60px;
+        opacity: 0;
+        transition: opacity 0.3s;
+        font-size: 0.9rem;
+      }
+
+      .tooltip .tooltiptext::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: var(--header-bg) transparent transparent transparent;
+      }
+
+      .tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav-container">
+        <div class="logo">
+          <img src="logo.png" alt="Düzdemir Logo" />
+        </div>
+        <nav>
+          <ul class="main-menu">
+            <li class="tooltip">
+              <a href="#anasayfa"><i class="fas fa-home"></i></a>
+              <span class="tooltiptext">Anasayfa</span>
+            </li>
+            <li class="tooltip">
+              <a href="#hakkimizda"><i class="fas fa-user-tie"></i></a>
+              <span class="tooltiptext">Hakkımızda</span>
+            </li>
+            <li class="tooltip">
+              <a href="#uzmanliklar"><i class="fas fa-balance-scale"></i></a>
+              <span class="tooltiptext">Uzmanlıklar</span>
+            </li>
+            <li class="tooltip">
+              <a href="#iletisim"><i class="fas fa-envelope"></i></a>
+              <span class="tooltiptext">İletişim</span>
+            </li>
+          </ul>
+          <ul class="theme-menu">
+            <li class="tooltip">
+              <a
+                href="javascript:void(0);"
+                id="theme-toggle"
+                class="theme-toggle"
+              >
+                <i class="fas fa-moon"></i>
+              </a>
+              <span class="tooltiptext">Tema Değiştir</span>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <div class="quote-box">
+        <div class="slideshow" id="background-slideshow">
+          <div class="slide active">
+            <img src="atam1.jpg" alt="Atatürk" />
+            <div class="slide-quote">"Adalet mülkün temelidir."</div>
+          </div>
+          <div class="slide">
+            <img src="law1.jpg" alt="Hukuk" />
+            <div class="slide-quote">
+              "Cumhuriyet, yüksek ahlaki değer ve niteliklere dayanan bir
+              idaredir. Cumhuriyet fazilettir."
+            </div>
+          </div>
+          <div class="slide">
+            <img src="atam5.jpg" alt="Atatürk" />
+            <div class="slide-quote">"Türk, öğün, çalış, güven."</div>
+          </div>
+          <div class="slide">
+            <img src="law3.jpg" alt="Hukuk" />
+            <div class="slide-quote">
+              "Hak ve adalet fikirleri, üzerine politika kurulur; politika
+              üzerine hak ve adalet fikirleri kurulmaz."
+            </div>
+          </div>
+        </div>
+
+        <div class="slideshow-controls">
+          <button id="prev-slide">&lt;</button>
+          <button id="next-slide">&gt;</button>
+        </div>
+
+        <div class="slideshow-indicators" id="slide-indicators">
+          <div class="indicator active" data-index="0"></div>
+          <div class="indicator" data-index="1"></div>
+          <div class="indicator" data-index="2"></div>
+          <div class="indicator" data-index="3"></div>
+        </div>
+      </div>
+
+      <!-- Updated lawyer header as a card with shadow -->
+      <div class="lawyer-header">
+        <div class="lawyer-header-container">
+          <div class="lawyer-title">
+            <h2 class="lawyer-name">Avukat Ece Düzdemir</h2>
+            <div class="gold-line"></div>
+          </div>
+          <div class="lawyer-content">
+            <div class="lawyer-photo">
+              <img src="protre.jpg" alt="Avukat Ece Düzdemir" />
+            </div>
+            <div class="motivation-text">
+              Düzdemir Hukuk & Danışmanlık'a hoş geldiniz. Adalet ve etik
+              değerler ışığında, hukuki sorunlarınıza çözüm odaklı yaklaşım
+              sunuyoruz. Dürüstlük, şeffaflık ve profesyonellik ilkelerimizle
+              her zaman müvekkillerimizin yanındayız. Hukuki yolculuğunuzda
+              güvenilir bir rehber arıyorsanız, doğru yerdesiniz.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-sections">
+        <section class="section" id="about-us">
+          <div class="section-content">
+            <h3>Hakkımızda</h3>
+            <div id="about-us-content">
+              <p>
+                Av. Ece Düzdemir, 2016 yılında Çukurova Üniversitesi Hukuk
+                Fakültesi'nden onur derecesiyle mezun olmuştur. Fakülte eğitimi
+                süresince öğrenci değişim programı ile bir dönem İspanya'da
+                eğitim görmüş ve uluslararası hukuk perspektifi kazanmıştır.
+              </p>
+              <p>
+                Avukatlık stajını Adana Barosu'na bağlı olarak, şehrin önde
+                gelen hukuk bürolarından birinde tamamlamış ve bu süreçte
+                çeşitli hukuk dallarında geniş tecrübe edinmiştir. Staj
+                döneminde özellikle aile hukuku ve ticaret hukuku alanlarında
+                uzmanlaşmaya başlamıştır.
+              </p>
+              <p>
+                Mezuniyetinden sonra, Türkiye'nin saygın hukuk bürolarında
+                çalışarak profesyonel kariyerine başlamış, dört yıl boyunca
+                Ankara ve İstanbul'da farklı alanlarda deneyim kazanmıştır. Bu
+                süre zarfında ulusal ve uluslararası birçok davada aktif rol
+                almış, mesleki yetkinliğini sürekli geliştirmiştir.
+              </p>
+              <p>
+                2021 yılında kendi hukuk bürosunu kurarak bağımsız çalışma
+                hayatına adım atan Av. Ece Düzdemir, müvekkillerine
+                kişiselleştirilmiş ve çözüm odaklı hizmet sunmayı ilke
+                edinmiştir. Sürekli kendini geliştirmeye ve hukuk alanındaki
+                yenilikleri takip etmeye özen gösteren Düzdemir, aynı zamanda
+                çeşitli sivil toplum kuruluşlarında gönüllü hukuki danışmanlık
+                hizmeti vermektedir.
+              </p>
+              <p>
+                Düzdemir Hukuk & Danışmanlık olarak, her müvekkilimizin hukuki
+                sorunlarına titizlikle yaklaşıyor, dürüstlük ve şeffaflık
+                ilkelerinden taviz vermeden en yüksek kalitede hizmeti sunmaya
+                çalışıyoruz.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="expertise">
+          <div class="section-content">
+            <h3>Uzmanlıklar ve Hukuki Danışmanlık</h3>
+            <div id="expertise-content">
+              <p>
+                Düzdemir Hukuk & Danışmanlık olarak geniş bir yelpazede hukuki
+                hizmetler sunmaktayız. Alanında uzman avukatlarımızla
+                müvekkillerimize profesyonel ve çözüm odaklı yaklaşımlar
+                sunuyoruz.
+              </p>
+              <p>
+                Aile Hukuku, Ticaret Hukuku, Ceza Hukuku, İş Hukuku, Gayrimenkul
+                ve İnşaat Hukuku alanlarında uzmanlaşmış ekibimizle tüm hukuki
+                ihtiyaçlarınızda yanınızdayız.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="contact">
+          <div class="section-content">
+            <h3>İletişim</h3>
+            <div id="contact-content">
+              <p>
+                Adres: Gazi Mustafa Kemal Bulvarı No:123 Kat:5 D:15<br />
+                Çankaya / Ankara
+              </p>
+              <p>
+                Telefon: +90 312 123 45 67<br />
+                E-posta: info@duzdemir-hukuk.com
+              </p>
+              <p>
+                Çalışma Saatleri:<br />
+                Pazartesi - Cuma: 09:00 - 18:00
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container footer-content">
+        <div class="footer-section">
+          <h3>Hakkımızda</h3>
+          <p>
+            Düzdemir Hukuk & Danışmanlık olarak hukuki çözümleriniz için
+            yanınızdayız.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h3>Uzmanlıklar</h3>
+          <p>
+            Aile Hukuku, Ticaret Hukuku, Ceza Hukuku, İş Hukuku ve daha fazlası.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h3>İletişim</h3>
+          <p>
+            Adres: Gazi Mustafa Kemal Bulvarı No:123 Kat:5 D:15,
+            Çankaya/Ankara<br />
+            Telefon: +90 312 123 45 67<br />
+            E-posta: info@duzdemir-hukuk.com
+          </p>
+        </div>
+
+        <div class="copyright">
+          Copyright © 2025 Düzdemir Hukuk & Danışmanlık. Tüm hakları saklıdır.
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const slides = document.querySelectorAll(".slide");
+      const prevButton = document.getElementById("prev-slide");
+      const nextButton = document.getElementById("next-slide");
+      const indicators = document.querySelectorAll(".indicator");
+      let currentSlideIndex = 0;
+      let slideshowInterval;
+
+      function showSlide(index) {
+        slides.forEach((slide) => slide.classList.remove("active"));
+        indicators.forEach((indicator) => indicator.classList.remove("active"));
+
+        currentSlideIndex = (index + slides.length) % slides.length;
+        slides[currentSlideIndex].classList.add("active");
+        indicators[currentSlideIndex].classList.add("active");
+      }
+
+      function nextSlide() {
+        showSlide(currentSlideIndex + 1);
+      }
+
+      function prevSlide() {
+        showSlide(currentSlideIndex - 1);
+      }
+
+      function startSlideshow() {
+        slideshowInterval = setInterval(nextSlide, 7000);
+      }
+
+      function resetInterval() {
+        clearInterval(slideshowInterval);
+        startSlideshow();
+      }
+
+      prevButton.addEventListener("click", () => {
+        prevSlide();
+        resetInterval();
+      });
+
+      nextButton.addEventListener("click", () => {
+        nextSlide();
+        resetInterval();
+      });
+
+      indicators.forEach((indicator) => {
+        indicator.addEventListener("click", () => {
+          const slideIndex = parseInt(indicator.getAttribute("data-index"));
+          showSlide(slideIndex);
+          resetInterval();
+        });
+      });
+
+      // Dark mode toggle function
+      const themeToggle = document.getElementById("theme-toggle");
+      const themeIcon = themeToggle.querySelector("i");
+
+      themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+
+        // Change icon
+        if (document.body.classList.contains("dark-mode")) {
+          themeIcon.classList.remove("fa-moon");
+          themeIcon.classList.add("fa-sun");
+        } else {
+          themeIcon.classList.remove("fa-sun");
+          themeIcon.classList.add("fa-moon");
+        }
+
+        // Save theme preference to localStorage
+        if (document.body.classList.contains("dark-mode")) {
+          localStorage.setItem("theme", "dark");
+        } else {
+          localStorage.setItem("theme", "light");
+        }
+      });
+
+      // Check theme preference on page load
+      document.addEventListener("DOMContentLoaded", () => {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "dark") {
+          document.body.classList.add("dark-mode");
+          themeIcon.classList.remove("fa-moon");
+          themeIcon.classList.add("fa-sun");
+        }
+      });
+
+      startSlideshow();
+    </script>
+  </body>
+</html>

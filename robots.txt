@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://duzdemir-hukuk.com/sitemap.xml

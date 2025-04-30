@@ -1,0 +1,1124 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", Arial, sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+:root {
+  --bg-color: #fffbea;
+  --header-bg: #0c0c0c;
+  --text-color: #333;
+  --section-bg: #fffbea;
+  --footer-bg: #f5f5f5;
+  --footer-text: #777;
+  --accent-color: #d4af37;
+  --header-text: #fff;
+  --section-shadow: rgba(0, 0, 0, 0.1);
+  --section-border: transparent;
+  --light-gray: #e9e7d9;
+  --card-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  --card-bg: #fff;
+  --card-border: #eaeaea;
+}
+.section#about-us {
+  background-image: url("https://clipart-library.com/2024/pictures-of-court-rooms/pictures-of-court-rooms-0.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  color: #fff;
+  padding: 50px 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+.section#about-us::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+.section#about-us .section-content {
+  position: relative;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.section#about-us h3 {
+  color: #f0f0f0;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  letter-spacing: 1px;
+}
+.section#about-us p {
+  color: #fff;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+.dark-mode .section#about-us .section-content {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.about-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.about-more-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--accent-color);
+  color: var(--header-bg);
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  gap: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 2px solid var(--accent-color);
+}
+
+.about-more-button i {
+  transition: transform 0.3s ease;
+}
+
+.about-more-button:hover {
+  background-color: transparent;
+  color: #fff;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px #0000004d;
+}
+
+.about-more-button:hover i {
+  transform: translateX(5px);
+}
+
+.dark-mode .about-more-button {
+  color: var(--header-bg);
+}
+
+.dark-mode .about-more-button:hover {
+  color: var(--accent-color);
+}
+.dark-mode {
+  --bg-color: #121212;
+  --header-bg: #000000;
+  --text-color: #e0e0e0;
+  --section-bg: #121212;
+  --footer-bg: #1a1a1a;
+  --footer-text: #aaaaaa;
+  --section-shadow: rgba(0, 0, 0, 0.5);
+  --section-border: #333333;
+  --light-gray: #252525;
+  --card-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  --card-bg: #1e1e1e;
+  --card-border: #333;
+}
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  overflow-x: hidden;
+  animation: fadeIn 0.5s ease-in;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.main-content.container {
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+}
+header {
+  background-color: var(--header-bg);
+  color: var(--header-text);
+  padding: 15px 0;
+  max-height: 150px;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-left: 0;
+  gap: 15px;
+  padding-left: 20px;
+}
+.logo img {
+  height: 70px;
+  width: 70px;
+  object-fit: contain;
+}
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.logo-text .main-text {
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--header-text);
+  line-height: 1.2;
+}
+.logo-text .sub-text {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--accent-color);
+  letter-spacing: 1px;
+}
+nav {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  margin-left: 0;
+  gap: 20px;
+}
+
+nav ul.main-menu {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: 50px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+nav ul.theme-menu {
+  margin-left: auto;
+  margin-right: 0;
+  padding-right: 20px;
+  list-style: none;
+}
+nav ul li {
+  margin: 0;
+  padding: 0;
+}
+nav ul li:last-child {
+  margin-right: 0;
+}
+nav ul li a {
+  color: var(--header-text);
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 10px 5px;
+  display: inline-block;
+}
+nav ul li a:hover {
+  color: var(--accent-color);
+  transform: scale(1.1);
+}
+nav ul li a:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+.theme-toggle {
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: var(--header-text);
+  transition: all 0.3s ease;
+}
+.theme-toggle:hover {
+  color: var(--accent-color);
+  transform: scale(1.1);
+}
+header {
+  max-height: 150px;
+  display: flex;
+  align-items: center;
+}
+.main-content {
+  padding-top: 0;
+  padding-bottom: 40px;
+}
+.quote-box {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+  height: 450px; /* Yüksekliği sabit tutuyoruz */
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+.slideshow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Alt kısma hizalama */
+  align-items: center;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.slide img {
+  position: absolute;
+  top: 0; /* 50% yerine 0 yapıyoruz */
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center; /* Ortalama */
+  z-index: 0;
+  transform: none; /* translateY(-50%) kaldırıyoruz */
+  will-change: transform;
+}
+
+.slide-quote {
+  position: relative;
+  color: #fff;
+  font-size: 1.8rem;
+  font-style: italic;
+  font-weight: bold;
+  width: 90%;
+  max-width: 1000px;
+  margin-bottom: 60px;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 15px;
+  border-radius: 8px;
+}
+.slideshow-controls {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  z-index: 10;
+}
+.slideshow-controls button {
+  background-color: rgba(255, 255, 255, 0.3);
+  border: none;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+.slideshow-controls button:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.slideshow-indicators {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  z-index: 10;
+}
+.slide.active img[src="atatürk5.jpg"] {
+  object-position: center 10%; /* Bu değeri ayarlayabilirsiniz */
+}
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.indicator.active {
+  background-color: #fff;
+  transform: scale(1.2);
+}
+.content-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+}
+.section {
+  padding: 30px 0;
+  background-color: var(--section-bg);
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  position: relative;
+}
+.section-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.section h3 {
+  color: var(--text-color);
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+.section p {
+  color: var(--text-color);
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+.lawyer-header {
+  position: relative;
+  margin-bottom: 40px;
+  padding: 0;
+  width: 100%;
+  background-color: transparent;
+}
+.lawyer-header-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--light-gray);
+  border-radius: 10px;
+  box-shadow: var(--card-shadow);
+  padding: 40px;
+  overflow: hidden;
+}
+.lawyer-title {
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  position: relative;
+}
+.lawyer-name {
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--text-color);
+  margin-bottom: 5px;
+}
+.gold-line {
+  height: 2px;
+  background-color: var(--accent-color);
+  width: 180px;
+}
+.lawyer-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  align-items: center;
+}
+.lawyer-photo {
+  width: 200px;
+  height: 250px;
+  border: 3px solid var(--accent-color);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.lawyer-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.motivation-text {
+  flex: 1;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-color);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+footer {
+  background-color: var(--footer-bg);
+  padding: 30px 0;
+  margin-top: 40px;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px;
+}
+
+.footer-main {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.footer-left {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 60%;
+}
+
+.footer-right {
+  flex: 1;
+  min-width: 300px;
+  max-width: 35%;
+}
+
+.footer-section {
+  margin-bottom: 20px;
+}
+.footer-section h3 {
+  color: var(--text-color);
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+.footer-section p {
+  color: #666;
+}
+.faq-section {
+  background-color: var(--light-gray);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: var(--card-shadow);
+}
+
+.faq-item {
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  padding-bottom: 10px;
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.faq-question {
+  color: var(--accent-color);
+  font-weight: 500;
+  margin-bottom: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.faq-question i {
+  transition: transform 0.3s ease;
+}
+
+.faq-question.active i {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  color: var(--text-color);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  padding-left: 24px;
+}
+
+.faq-answer.active {
+  max-height: 400px;
+  margin-top: 10px;
+}
+
+.copyright {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  color: var(--footer-text);
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  padding-top: 15px;
+  clear: both;
+}
+.slide:nth-child(3) img {
+  object-fit: cover;
+  object-position: center 45%;
+}
+.slide:nth-child(2) img {
+  object-fit: cover;
+  object-position: center 75%;
+}
+.slide:nth-child(4) img {
+  object-fit: cover;
+  object-position: center 25%;
+}
+.expertise-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.expertise-title {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--text-color);
+  margin-bottom: 40px;
+  position: relative;
+}
+.expertise-title:after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 3px;
+  background-color: var(--accent-color);
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.expertise-description {
+  text-align: center;
+  margin-bottom: 30px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.expertise-item {
+  position: relative;
+  height: 300px;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: transform, opacity;
+  margin-bottom: 20px;
+}
+
+.expertise-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.expertise-front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s ease;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+.expertise-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.expertise-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  padding: 25px;
+  transition: transform 0.6s ease;
+  transform: translateX(100%);
+  display: flex;
+  flex-direction: column;
+}
+.expertise-item:hover .expertise-front {
+  transform: translateX(-100%);
+}
+.expertise-item:hover .expertise-back {
+  transform: translateX(0);
+}
+.expertise-back-title {
+  color: var(--accent-color);
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  position: relative;
+  padding-bottom: 10px;
+}
+.expertise-back-title:after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 2px;
+  background-color: var(--accent-color);
+  bottom: 0;
+  left: 0;
+}
+.expertise-back-content {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-right: 5px;
+  margin-bottom: 15px;
+}
+.expertise-back-content p {
+  margin-bottom: 10px;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+.expertise-back-footer {
+  font-style: italic;
+  color: var(--accent-color);
+  text-align: right;
+  font-size: 0.9rem;
+}
+.section#contact {
+  padding: 30px 0;
+  background-color: var(--section-bg);
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  position: relative;
+}
+.contact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+.contact-info {
+  flex: 1;
+}
+.map-container {
+  flex: 1;
+  height: 400px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+}
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .map-container {
+    height: 300px;
+  }
+  .logo {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-left: -100%;
+  }
+  .logo img {
+    height: 60px;
+    width: 180px;
+  }
+  .logo-text {
+    text-align: center;
+  }
+  .logo-text .main-text {
+    font-size: 1.5rem;
+  }
+  .logo-text .sub-text {
+    font-size: 0.8rem;
+  }
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+  nav ul.theme-menu {
+    margin: 15px 0 0 0;
+  }
+  nav ul li {
+    margin: 5px 10px;
+  }
+  nav ul li a {
+    font-size: 1.2rem;
+  }
+  .quote-box {
+    height: 300px;
+  }
+  .slide-quote {
+    font-size: 1.2rem;
+    padding: 10px;
+    margin-bottom: 40px;
+  }
+  .lawyer-header-container {
+    padding: 20px;
+  }
+  .lawyer-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .lawyer-photo {
+    width: 150px;
+    height: 180px;
+  }
+  .motivation-text {
+    text-align: center;
+  }
+  .section-content {
+    padding: 0 15px;
+  }
+  .expertise-item {
+    width: 100%;
+    max-width: 300px;
+    margin: 10px auto;
+  }
+  .expertise-back {
+    padding: 15px;
+  }
+  .expertise-back-title {
+    font-size: 1.3rem;
+  }
+  .expertise-back-content p {
+    font-size: 0.9rem;
+  }
+  .footer-main {
+    flex-direction: column;
+  }
+
+  .footer-left,
+  .footer-right {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .faq-section {
+    margin-top: 20px;
+    padding: 10px;
+  }
+  .section#about-us {
+    min-height: auto;
+    padding: 30px 0;
+  }
+  .section#about-us .section-content {
+    padding: 20px;
+    margin: 20px;
+  }
+}
+@media (max-width: 1200px) {
+  .expertise-grid {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 900px) {
+  .expertise-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .expertise-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 480px) {
+  .logo img {
+    height: 80px;
+    width: 100px;
+  }
+  nav ul li a {
+    font-size: 1rem;
+  }
+  .quote-box {
+    height: 250px;
+  }
+  .slide-quote {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+  .lawyer-name {
+    font-size: 1.5rem;
+  }
+  .section h3 {
+    font-size: 1.2rem;
+  }
+  .section p {
+    font-size: 0.9rem;
+  }
+  .section#about-us {
+    background-attachment: scroll;
+  }
+  .section#about-us .section-content {
+    padding: 15px;
+    margin: 15px;
+  }
+  .about-more-button {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}
+/* Çok dar ekranlar için ince ayar */
+@media (max-width: 320px) {
+  .logo-text .main-text {
+    font-size: 1.4rem;
+  }
+  .lawyer-name {
+    font-size: 1.4rem;
+  }
+}
+@media (max-width: 280px) {
+  .logo-text .main-text {
+    font-size: 1.2rem;
+  }
+
+  nav ul li a {
+    font-size: 0.9rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .expertise-item,
+  .whatsapp-icon {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+@media print {
+  .whatsapp-button,
+  .slideshow {
+    display: none !important;
+  }
+
+  a {
+    text-decoration: underline;
+    color: #000 !important;
+  }
+
+  body {
+    font-size: 12pt;
+  }
+  header,
+  footer,
+  .theme-toggle,
+  .slideshow-controls,
+  .slideshow-indicators {
+    display: none;
+  }
+  .section#about-us {
+    background-image: none;
+    color: #000;
+  }
+  .section#about-us::before {
+    background-color: transparent;
+  }
+  .section#about-us .section-content {
+    background-color: transparent;
+    box-shadow: none;
+  }
+  .section#about-us p {
+    color: #000;
+    text-shadow: none;
+  }
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+.expertise-item,
+.slide img {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.section-divider {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--accent-color) 50%,
+    transparent 100%
+  );
+  margin: 60px 0;
+  position: relative;
+}
+.section-divider::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(212, 175, 55, 0.4) 50%,
+    transparent 100%
+  );
+  filter: blur(1px);
+}
+@media (max-width: 768px) {
+  .section-divider {
+    margin: 40px 0;
+  }
+}
+
+.whatsapp-button {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #25d366;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: move;
+  z-index: 9999;
+  transition: transform 0.2s, box-shadow 0.2s;
+  user-select: none;
+  touch-action: none;
+}
+
+.whatsapp-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+}
+
+.whatsapp-button:active {
+  transform: scale(0.95);
+}
+
+.whatsapp-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 2rem;
+  animation: pulse 1.5s infinite;
+}
+
+.whatsapp-tooltip {
+  position: absolute;
+  top: -45px;
+  background-color: #333;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+
+.whatsapp-tooltip::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 8px 8px 0;
+  border-style: solid;
+  border-color: #333 transparent transparent;
+}
+
+.whatsapp-button:hover .whatsapp-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.dark-mode .whatsapp-tooltip {
+  background-color: #222;
+}
+
+.dark-mode .whatsapp-tooltip::after {
+  border-color: #222 transparent transparent;
+}
+
+@media (max-width: 768px) {
+  .whatsapp-button {
+    width: 50px;
+    height: 50px;
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .whatsapp-icon {
+    font-size: 1.6rem;
+  }
+}
